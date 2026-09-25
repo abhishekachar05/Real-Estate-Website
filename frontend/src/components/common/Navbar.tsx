@@ -1,0 +1,252 @@
+import React, { useRef, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useAuth } from '../../contexts/AuthContext';
+
+const navLinks = [
+  { path: '/', label: 'Home' },
+  { path: '/properties', label: 'Properties' },
+  { path: '/ai-hub', label: 'AI Hub' },
+  { path: '/about', label: 'About' },
+  { path: '/contact', label: 'Contact' },
+];
+
+const Navbar: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { user, isAuthenticated, logout } = useAuth();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = React.useState(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+
+  const { scrollY } = useScroll();
+  const bgOpacity = useTransform(scrollY, [0, 100], [0.8, 0.95]);
+
+  const isActive = (path: string) => {
+    if (path === '/' && location.pathname === '/') return true;
+    if (path !== '/' && location.pathname.startsWith(path)) return true;
+    return false;
+  };
+
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
+  const handleLogout = () => {
+    logout();
+    closeMobileMenu();
+    setIsUserMenuOpen(false);
+    navigate('/');
+  };
+
+  // Close user menu when clicking outside
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  // Initials avatar
+  const initials = user?.name
+    ? user.name.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase()
+    : '?';
+
+  return (
+    <>
+    {/* Skip-to-main-content — keyboard accessibility */}
+    <a
+      href="#main-content"
+      className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-[#2563EB] focus:text-white focus:font-manrope focus:font-bold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg"
+    >
+      Skip to main content
+    </a>
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      style={{ backgroundColor: `rgba(255, 255, 255, ${bgOpacity.get()})` }}
+      className="sticky top-0 z-50 border-b border-[#E2E8F0] backdrop-blur-md"
+    >
+      <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-20">
+        {/* Logo */}
+        <Link to="/" className="flex items-center shrink-0" onClick={closeMobileMenu}>
+          <img
+            src="/propert-e-logo-transparent.png"
+            alt="Propert-E"
+            className="h-12 w-auto object-contain"
+            draggable={false}
+          />
+        </Link>
+
+        {/* Desktop nav links */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`font-manrope transition-[color] ${
+                isActive(link.path)
+                  ? 'text-[#2563EB] font-semibold'
+                  : 'text-[#374151] hover:text-[#2563EB]'
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Desktop right side */}
+        <div className="hidden md:flex items-center gap-3">
+          {isAuthenticated && user ? (
+            <>
+              <Link
+                to="/add-property"
+                className="bg-[#2563EB] text-white font-manrope font-bold px-5 py-2 rounded-xl hover:bg-[#1D4ED8] transition-[background-color,box-shadow] hover:shadow-md active:scale-[0.96] transition-transform"
+              >
+                + List Property
+              </Link>
+
+              {/* User avatar dropdown */}
+              <div className="relative" ref={userMenuRef}>
+                <button
+                  onClick={() => setIsUserMenuOpen((v) => !v)}
+                  aria-expanded={isUserMenuOpen}
+                  aria-label="User menu"
+                  className="flex items-center gap-2 pl-1 pr-3 py-1 rounded-xl hover:bg-[#FFFFFF] transition-[background-color,border-color] border border-transparent hover:border-[#E2E8F0] active:scale-[0.96]"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-[#2563EB] text-white font-manrope font-bold text-xs flex items-center justify-center shrink-0">
+                    {initials}
+                  </div>
+                  <span className="font-manrope font-semibold text-[#0F172A] max-w-[100px] truncate">
+                    {user.name.split(' ')[0]}
+                  </span>
+                  <span className="font-material-icons text-[#9CA3AF] text-lg" aria-hidden="true">
+                    {isUserMenuOpen ? 'expand_less' : 'expand_more'}
+                  </span>
+                </button>
+
+                {isUserMenuOpen && (
+                  <div className="absolute right-0 top-full mt-2 w-52 bg-white border border-[#E2E8F0] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.04)] py-2 z-50">
+                    <div className="px-4 py-2.5 border-b border-[#F3F0EC] mb-1">
+                      <p className="font-manrope text-xs text-[#9CA3AF]">Signed in as</p>
+                      <p className="font-manrope text-sm font-semibold text-[#0F172A] truncate">{user.email}</p>
+                    </div>
+                    {[
+                      { to: '/dashboard', icon: 'dashboard', label: 'Dashboard' },
+                      { to: '/my-listings', icon: 'home_work', label: 'My Listings' },
+                    ].map(({ to, icon, label }) => (
+                      <Link
+                        key={to}
+                        to={to}
+                        onClick={() => setIsUserMenuOpen(false)}
+                        className={`flex items-center gap-2.5 px-4 py-2.5 font-manrope text-sm transition-[background-color,color] mx-1 rounded-xl ${
+                          isActive(to) ? 'text-[#2563EB] font-semibold bg-[#EFF6FF]' : 'text-[#374151] hover:bg-[#EFF6FF] hover:text-[#2563EB]'
+                        }`}
+                      >
+                        <span className="font-material-icons text-base" aria-hidden="true">{icon}</span>
+                        {label}
+                      </Link>
+                    ))}
+                    <div className="border-t border-[#F3F0EC] mt-1 pt-1">
+                      <button
+                        onClick={handleLogout}
+                        className="w-full flex items-center gap-2.5 px-4 py-2.5 font-manrope text-sm text-[#374151] hover:bg-red-50 hover:text-red-500 transition-[background-color,color] mx-1 rounded-xl"
+                        style={{ width: 'calc(100% - 8px)' }}
+                      >
+                        <span className="font-material-icons text-base" aria-hidden="true">logout</span>
+                        Logout
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/signin"
+                className="font-manrope font-semibold text-[#374151] hover:text-[#2563EB] transition-[color] px-4 py-2"
+              >
+                Sign In
+              </Link>
+              <Link
+                to="/signup"
+                className="bg-[#2563EB] text-white font-manrope font-bold px-6 py-2 rounded-xl hover:bg-[#1D4ED8] transition-[background-color,box-shadow] hover:shadow-md active:scale-[0.96]"
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
+        </div>
+
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden p-2 text-[#374151] hover:text-[#2563EB] transition-[color]"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMobileMenuOpen}
+        >
+          <span className="font-material-icons text-2xl" aria-hidden="true">
+            {isMobileMenuOpen ? 'close' : 'menu'}
+          </span>
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-20 left-0 w-full bg-white border-b border-[#E2E8F0] shadow-lg py-4 px-8 flex flex-col gap-1">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`font-manrope text-base py-2.5 transition-[color] ${
+                isActive(link.path) ? 'text-[#2563EB] font-semibold' : 'text-[#374151]'
+              }`}
+              onClick={closeMobileMenu}
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <div className="border-t border-gray-100 mt-2 pt-3 flex flex-col gap-1">
+            {isAuthenticated && user ? (
+              <>
+                <p className="font-manrope text-xs text-[#9CA3AF] mb-1">
+                  Signed in as <span className="font-semibold text-[#374151]">{user.name}</span>
+                </p>
+                <Link to="/dashboard" className="font-manrope text-base py-2.5 text-[#374151] hover:text-[#2563EB] transition-[color]" onClick={closeMobileMenu}>Dashboard</Link>
+                <Link to="/my-listings" className="font-manrope text-base py-2.5 text-[#374151] hover:text-[#2563EB] transition-[color]" onClick={closeMobileMenu}>My Listings</Link>
+                <Link
+                  to="/add-property"
+                  className="mt-2 bg-[#2563EB] text-white font-manrope font-bold text-sm px-6 py-3 rounded-lg hover:bg-[#1D4ED8] transition-all text-center"
+                  onClick={closeMobileMenu}
+                >
+                  + List Property
+                </Link>
+                <button onClick={handleLogout} className="font-manrope text-base py-2.5 text-left text-[#374151] hover:text-red-500 transition-[color]">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/signin" className="font-manrope font-semibold text-base py-2.5 text-[#374151]" onClick={closeMobileMenu}>Sign In</Link>
+                <Link
+                  to="/signup"
+                  className="mt-2 bg-[#2563EB] text-white font-manrope font-bold text-sm px-6 py-3 rounded-lg hover:bg-[#1D4ED8] transition-all text-center"
+                  onClick={closeMobileMenu}
+                >
+                  Sign Up
+                </Link>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </motion.nav>
+    </>
+  );
+};
+
+export default Navbar;

@@ -1,0 +1,29 @@
+{
+  "name": "Propert-E - AI-Powered Real Estate",
+  "short_name": "Propert-E",
+  "description": "AI-powered luxury real estate platform connecting you with your dream home",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2563EB",
+  "dir": "auto",
+  "lang": "en-IN",
+  "categories": ["real-estate", "business", "lifestyle"],
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

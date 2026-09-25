@@ -1,0 +1,11 @@
+# These owners will be the default owners for everything in the repo
+* @abhishekachar05
+
+# Backend code owners
+/backend/ @abhishekachar05
+
+# Frontend code owners
+/frontend/ @abhishekachar05
+
+# Admin dashboard code owners
+/admin/ @abhishekachar05
