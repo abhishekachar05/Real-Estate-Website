@@ -53,8 +53,8 @@
         font-family="'Fraunces', 'Playfair Display', Georgia, serif" 
         font-size="62" 
         font-weight="800" 
-        fill="#0F172A" 
+        fill="#2563EB" 
         letter-spacing="-1">
-    Propert-<tspan fill="#2563EB">E</tspan>
+    Propert-<tspan fill="#1D4ED8">E</tspan>
   </text>
 </svg>

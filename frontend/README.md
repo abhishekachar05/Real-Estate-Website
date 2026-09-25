@@ -9,8 +9,8 @@ _The user-facing website of Propert-E — browse & list properties, book viewing
 [![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-buildestate.vercel.app-2ea44f?style=for-the-badge&logo=vercel)](https://buildestate.vercel.app)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Abhishek_Achar-000000?style=for-the-badge)](https://portfolio-liart-eight-yieyezx2v3.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-abhishekachar05-181717?style=for-the-badge&logo=github)](https://github.com/abhishekachar05/Real-Estate-Website)
 
 </div>
 
@@ -169,8 +169,6 @@ frontend/src/
 4. Inject environment variable: `VITE_API_BASE_URL` mapped to your Render backend URL.
 5. **Critically:** Do not set `VITE_ENABLE_AI_HUB` in Vercel to preserve limits.
 6. Trigger Deploy.
-
-Currently live at: **https://buildestate.vercel.app**
 
 ---
 

@@ -8,7 +8,8 @@ _The core REST API server driving the Propert-E real estate platform._
 [![Express.js](https://img.shields.io/badge/Express.js-Backend-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com)
 
-[![Live API](https://img.shields.io/badge/Live_API-On_Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://real-estate-website-backend-zfu7.onrender.com/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Abhishek_Achar-000000?style=for-the-badge)](https://portfolio-liart-eight-yieyezx2v3.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-abhishekachar05-181717?style=for-the-badge&logo=github)](https://github.com/abhishekachar05/Real-Estate-Website)
 
 </div>
 
@@ -232,8 +233,6 @@ To guarantee high scalability, image uploads follow a strict proxy lifecycle:
 4. Command structures: Build: `npm install` | Run: `npm start`.
 5. Mirror `.env.local` accurately inside Render Environment Variables GUI.
 6. Verify `NODE_ENV=production` is assigned while pointing `WEBSITE_URL` properly to standard frontend Vercel mapping.
-
-Active Node endpoint: **https://real-estate-website-backend-zfu7.onrender.com**
 
 ---
 

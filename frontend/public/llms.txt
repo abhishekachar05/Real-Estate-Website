@@ -30,11 +30,6 @@ Apartments (1BHK, 2BHK, 3BHK, 4BHK+), Villas, Independent Houses, Commercial Spa
 - Scraping: Firecrawl (user-supplied key, real-time scraping)
 - Auth: JWT + httpOnly refresh tokens, email verification
 
-## Links
-
-- Website: https://buildestate.vercel.app
-- Properties: https://buildestate.vercel.app/properties
-- AI Hub: https://buildestate.vercel.app/ai-hub
-- About: https://buildestate.vercel.app/about
-- Contact: https://buildestate.vercel.app/contact
+## Source
 - Source code: https://github.com/abhishekachar05/Real-Estate-Website
+- Repository: [abhishekachar05/Real-Estate-Website](https://github.com/abhishekachar05/Real-Estate-Website)

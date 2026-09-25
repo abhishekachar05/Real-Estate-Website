@@ -273,7 +273,6 @@ const AIPropertyHubPage: React.FC = () => {
   useSEO({
     title: 'AI Property Hub — Search Flats & Houses in India with GPT-4',
     description: 'Search for flats, villas, and apartments across India using AI. Propert-E scrapes live listings from 99acres, MagicBricks, and Housing.com, then ranks results with GPT-4.',
-    url: 'https://buildestate.vercel.app/ai-hub',
   });
 
   /* ── AI Hub disabled → show "download & run locally" page ── */
