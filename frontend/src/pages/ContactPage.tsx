@@ -34,6 +34,7 @@ const ContactPage: React.FC = () => {
   useSEO({
     title: 'Contact Us',
     description: 'Get in touch with Propert-E. We\'re here to help you find your dream property.',
+    url: 'https://buildestate.vercel.app/contact',
   });
 
   return (

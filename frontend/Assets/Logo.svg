@@ -48,13 +48,13 @@
           stroke-linejoin="round"/>
   </g>
 
-  <!-- Propert-E Typography in Deep Slate Navy -->
+  <!-- BuildEstate Typography in Deep Slate Navy -->
   <text x="145" y="86" 
         font-family="'Fraunces', 'Playfair Display', Georgia, serif" 
         font-size="62" 
         font-weight="800" 
         fill="#0F172A" 
         letter-spacing="-1">
-    Propert-<tspan fill="#2563EB">E</tspan>
+    Build<tspan fill="#2563EB">Estate</tspan>
   </text>
 </svg>

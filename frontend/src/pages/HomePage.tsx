@@ -16,6 +16,7 @@ const HomePage: React.FC = () => {
   useSEO({
     title: 'Find Flats, Villas & Apartments in India with AI',
     description: 'Propert-E helps you find flats, villas, and apartments in Mumbai, Delhi, Bangalore, Ahmedabad, and Pune using AI-powered search and live market analysis.',
+    url: 'https://buildestate.vercel.app',
   });
 
   return (

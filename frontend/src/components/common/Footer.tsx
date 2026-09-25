@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
           <div>
             <Link to="/" className="flex items-center mb-6">
               <img
-                src="/logo.svg"
+                src="/propert-e-logo-transparent.png"
                 alt="Propert-E"
                 loading="lazy"
                 decoding="async"

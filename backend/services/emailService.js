@@ -24,7 +24,7 @@ import {
 
 class EmailService {
   constructor() {
-    this.fromAddress = process.env.EMAIL_USER || 'noreply@properte.com';
+    this.fromAddress = process.env.EMAIL_USER || 'noreply@buildestate.com';
   }
 
   /**
@@ -106,7 +106,7 @@ class EmailService {
    */
   async sendNewsletterWelcome(userEmail) {
     const subject = 'Welcome to Propert-E Newsletter';
-    const siteUrl = process.env.WEBSITE_URL || 'http://localhost:5173';
+    const siteUrl = process.env.WEBSITE_URL || 'https://buildestate.vercel.app';
     const unsubscribeUrl = `${siteUrl}/unsubscribe?email=${encodeURIComponent(userEmail)}`;
     const htmlContent = getNewsletterTemplate(userEmail, unsubscribeUrl);
 
@@ -148,7 +148,7 @@ class EmailService {
       ${appointment.notes ? `<p><strong>Notes:</strong> ${appointment.notes}</p>` : ''}
     `;
 
-    const adminEmail = process.env.ADMIN_EMAIL || 'admin@properte.com';
+    const adminEmail = process.env.ADMIN_EMAIL || 'admin@buildestate.com';
     return await this.sendEmail(adminEmail, subject, htmlContent);
   }
 

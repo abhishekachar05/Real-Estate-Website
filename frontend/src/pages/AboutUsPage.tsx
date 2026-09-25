@@ -14,6 +14,7 @@ const AboutUsPage: React.FC = () => {
   useSEO({
     title: 'About Propert-E — AI-Powered Real Estate in India',
     description: 'Propert-E is an AI-powered real estate platform serving homebuyers and sellers across Mumbai, Delhi, Bangalore, Ahmedabad, and Pune. Learn about our mission and technology.',
+    url: 'https://buildestate.vercel.app/about',
   });
 
   return (

@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center shrink-0" onClick={closeMobileMenu}>
           <img
-            src="/logo.svg"
+            src="/propert-e-logo-transparent.png"
             alt="Propert-E"
             className="h-12 w-auto object-contain"
             draggable={false}

@@ -57,7 +57,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) => {
       '@id': `${SITE_URL}/#organization`,
       name: 'Propert-E',
       url: SITE_URL,
-      logo: `${SITE_URL}/logo.svg`,
+      logo: `${SITE_URL}/propert-e-logo-transparent.png`,
       areaServed: AREA_SERVED,
       sameAs: [
         'https://github.com/abhishekachar05/Real-Estate-Website',
@@ -77,7 +77,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) => {
       name: 'Propert-E',
       description: 'AI-powered real estate platform for finding luxury properties in India.',
       url: SITE_URL,
-      logo: `${SITE_URL}/logo.svg`,
+      logo: `${SITE_URL}/propert-e-logo-transparent.png`,
       image: `${SITE_URL}/og-image.png`,
       areaServed: AREA_SERVED.map((city) => ({ '@type': 'City', name: city })),
       priceRange: '₹₹₹',

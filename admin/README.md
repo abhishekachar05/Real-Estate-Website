@@ -8,8 +8,8 @@ _The control room of Propert-E — review listings, manage users & appointments,
 [![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
+[![Live Demo](https://img.shields.io/badge/Live_Dashboard-Visit_Panel-EA4335?style=for-the-badge&logo=render)](https://real-estate-website-admin.onrender.com/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Abhishek_Achar-000000?style=for-the-badge)](https://portfolio-liart-eight-yieyezx2v3.vercel.app/)
-[![GitHub](https://img.shields.io/badge/GitHub-abhishekachar05-181717?style=for-the-badge&logo=github)](https://github.com/abhishekachar05/Real-Estate-Website)
 
 </div>
 
@@ -141,6 +141,8 @@ admin/src/
 4. Trigger build via: `npm install && npm run build`.
 5. Define distribution as `dist` routing payload.
 6. Verify deployment by linking `VITE_BACKEND_URL` strictly to operational Express servers.
+
+Currently resolving at: **https://real-estate-website-admin.onrender.com**
 
 ---
 

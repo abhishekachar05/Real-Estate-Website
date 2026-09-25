@@ -4,7 +4,7 @@
 
 <br/>
 
-<img src="./frontend/public/logo.svg" alt="Propert-E Logo" height="85" />
+<img src="./frontend/public/propert-e-logo-transparent.png" alt="Propert-E Logo" height="90" />
 
 <br/><br/>
 

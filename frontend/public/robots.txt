@@ -13,5 +13,7 @@ Disallow: /dashboard
 Disallow: /my-listings
 Disallow: /add-property
 
-# Sitemap: /sitemap.xml
-# Context: /llms.txt
+Sitemap: https://buildestate.vercel.app/sitemap.xml
+
+# AI crawler context file
+# https://buildestate.vercel.app/llms.txt
