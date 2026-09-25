@@ -17,6 +17,7 @@
 </p>
 
 <p align="center">
+  <a href="https://propert-e.vercel.app" target="_blank"><strong>🌐 Live Demo</strong></a> •
   <a href="#-key-features">Features</a> •
   <a href="#-platform-previews">Previews</a> •
   <a href="#-architecture">Architecture</a> •
@@ -44,6 +45,22 @@
 [![Forks](https://img.shields.io/github/forks/abhishekachar05/Real-Estate-Website?style=flat-square&logo=github&color=2563EB)](https://github.com/abhishekachar05/Real-Estate-Website/fork)
 [![License](https://img.shields.io/github/license/abhishekachar05/Real-Estate-Website?style=flat-square&color=10B981)](LICENSE)
 [![Issues](https://img.shields.io/github/issues/abhishekachar05/Real-Estate-Website?style=flat-square&color=F59E0B)](https://github.com/abhishekachar05/Real-Estate-Website/issues)
+
+<br/>
+
+### 🚀 Live Demo
+
+<a href="https://propert-e.vercel.app" target="_blank">
+  <img src="https://img.shields.io/badge/🌐_User_Website-propert--e.vercel.app-2563EB?style=for-the-badge&logo=vercel&logoColor=white" alt="Live User Website"/>
+</a>
+&nbsp;
+<a href="https://propert-e-admin.vercel.app/login" target="_blank">
+  <img src="https://img.shields.io/badge/🔐_Admin_Dashboard-propert--e--admin.vercel.app-7C3AED?style=for-the-badge&logo=vercel&logoColor=white" alt="Admin Dashboard"/>
+</a>
+&nbsp;
+<a href="https://propert-e-backend.onrender.com" target="_blank">
+  <img src="https://img.shields.io/badge/⚙️_Backend_API-onrender.com-10B981?style=for-the-badge&logo=render&logoColor=white" alt="Backend API"/>
+</a>
 
 </div>
 
